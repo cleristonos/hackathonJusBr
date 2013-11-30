@@ -33,9 +33,11 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 //
 //$dbParams = array(
 //    'driver' => 'pdo_mysql',
+//    'host' => '192.168.0.128',
+//    'port'=> '5432',
 //    'user' => '',
 //    'password' => '',
-//    'dbname' => '',
+//    'dbname' => ''
 //);
 //
 //$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
