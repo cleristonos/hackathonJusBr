@@ -1,0 +1,19 @@
+{
+    "name": "vendor/o-n-gometro",
+    "description": "Description of project ONGometro.",
+    "authors": [
+        {
+            "name": "cleriston.os",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+            "silex/silex": "1.1.*",
+            "twig/twig": "1.13.*@dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "src"
+        }
+    }
+}
