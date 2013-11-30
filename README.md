@@ -1,4 +1,4 @@
-hackathonJusBr
+hackathonJusBr - ONGometro
 ==============
 
-Projeto Hackthon JusBrasil 2013
+ONGometro - Hackthon JusBrasil 2013
