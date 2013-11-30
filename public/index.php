@@ -50,6 +50,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 //-------------------ROTAS------------------------------------------
 $app->get('/', 'Controller\Site::home');
+$app->get('/sobre', 'Controller\Site::sobre');
 
 $app->before('Controller\AbstractController::mainBefore');
 //--------------------------------------------------------------------

@@ -16,5 +16,9 @@ class Site extends AbstractController {
         
         return $app['twig']->render('home.twig', array());
     }
+     public function sobre(\Silex\Application $app) {
+        
+        return $app['twig']->render('sobre.twig', array());
+    }
 
 }
