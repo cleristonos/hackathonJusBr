@@ -4,12 +4,13 @@
     "authors": [
         {
             "name": "cleriston.os",
-            "email": "your@email.here"
+            "email": "cleriston.os@gmail.com"
         }
     ],
     "require": {
             "silex/silex": "1.1.*",
-            "twig/twig": "1.13.*@dev"
+            "twig/twig": "1.13.*@dev",
+            "doctrine/orm": "*"
     },
     "autoload": {
         "psr-0": {

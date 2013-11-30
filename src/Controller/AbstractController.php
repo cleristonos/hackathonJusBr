@@ -1,16 +1,23 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of AbstractController
  *
- * @author cleriston.os
+ * @author cleriston
  */
+
+namespace Controller;
+
+use Silex\Application;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
 class AbstractController {
-    //put your code here
+
+    public static $session;
+
+    public static function mainBefore(Request $req) {
+        
+    }
+
 }
