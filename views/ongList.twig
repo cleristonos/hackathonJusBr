@@ -1,25 +1,46 @@
+{% extends "template.twig"%}
+{% block header %}
+    {{parent()}}
+<link href="/css/jquery.dataTables.css" rel="stylesheet">
+<script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" language="javascript" src="/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        $('#convenios').dataTable({
+            "sPaginationType": "full_numbers"
+        });
+    });
+</script>
+{% endblock%}
+
+
+
+    {% block container %}
 <h1>Ranking - Situação: {{situacao}} - {{nomeEstado}}</h1>
-{% block tabelaLista %}
-<table id="users" class="table table-striped table-bordered dataTable">
+<table id="convenios" class="table table-striped table-bordered dataTable">
     <thead>
         <tr>  
             <th>ID Registro</th>
             <th>Nome</th>
-            <th>Valor do Covenio</th>
-            <th>Valor Repassado</th>
-            <th>Diferença</th>
+            <th> Valor do Convenio</th>
+            <th> Valor Repassado</th>
+            <th> Diferença</th>
         </tr>
     </thead>
     <tbody>
-        {% for chave, ong in listaOng %}
+            {% for chave, ong in listaOng %}
         <tr>
             <td>{{ong.id}}</td>
             <td>{{ong.nome}}</td>
-            <td>{{ong.valor_global|default('Não definido')}}</td>
-            <td>{{ong.valor_repasse|default('Não definido')}}</td>
-            <td>{{ong.valor_global - ong.valor_repasse}}</td>
+            <td>R$ {{ong.valor_global|default('Não definido')}}</td>
+            <td>RS {{ong.valor_repasse|default('Não definido')}}</td>
+            <td>R$ {{ong.valor_global - ong.valor_repasse}}</td>
         </tr>
-         {% endfor%}
+             {% endfor%}
     </tbody>
 </table>
+    {% endblock %}
+     {% block table %}
+
 {% endblock %}
+
