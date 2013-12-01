@@ -41,6 +41,8 @@ $app->get('/ong/{uf}/{situacao}', 'Controller\Site::listOng');
 $app->get('/home2/{situacao}', 'Controller\Site::home2');
 $app->get('/home2', 'Controller\Site::home2');
 
+$app->get('/convenio/{id}', 'Controller\Site::convenio');
+
 
 $app->before('Controller\AbstractController::mainBefore');
 //--------------------------------------------------------------------
