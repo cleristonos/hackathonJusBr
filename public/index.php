@@ -31,37 +31,9 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     ),
 ));
 
-
-////--------------------------------------------------------------------
-//$app->register(new Silex\Provider\SessionServiceProvider(), array('session.storage.options' => array(
-//        'name' => 'ONGometro',
-//    //'id' => session_regenerate_id()
-//    )
-//));
-//
-////--------------------------------------------------------------------
-//$paths = array("../src/Model/DAO");
-//$isDevMode = true;
-//
-//$dbParams = array(
-//    'driver' => 'pdo_mysql',
-//    'host' => '192.168.0.128',
-//    'port'=> '5432',
-//    'user' => '',
-//    'password' => '',
-//    'dbname' => ''
-//);
-//
-//$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
-//$entityManager = EntityManager::create($dbParams, $config);
-//\Model\AbstractModel::setEntityManager($entityManager);
-//
-//
-//\Controller\AbstractController::$session = $app['session'];
-
-
 //-------------------ROTAS------------------------------------------
 $app->get('/', 'Controller\Site::home');
+$app->post('/ong', 'Controller\Site::listOng');
 $app->get('/sobre', 'Controller\Site::sobre');
 
 $app->before('Controller\AbstractController::mainBefore');

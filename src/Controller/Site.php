@@ -13,18 +13,42 @@ use Symfony\Component\HttpFoundation\Request;
 class Site extends AbstractController {
 
     public function home(\Silex\Application $app) {
-        $id = 27;
-        $sql = "SELECT * FROM situacao_convenio WHERE id = ?";
-        $post = $app['db']->fetchAssoc($sql, array((int) $id));
-
-        return "<h1>{$post['id']}</h1>" .
-                "<p>{$post['nome']}</p>";
-        //return $app['twig']->render('home.twig', array());
+        $sql = "select * from situacao_convenio";
+        $statement = $app['db']->prepare($sql);
+        $statement->execute();
+        $situacaoLista = $statement->fetchAll();
+        
+        return $app['twig']->render('home.twig', array(
+        'listaEstados' => (new \Helper\Utils())->listarEstados(),
+        'listaSituacao' =>$situacaoLista
+        ));
     }
 
-    public function sobre(\Silex\Application $app) {
+    public function listOng(\Silex\Application $app, Request $req) {
+        $uf = $req->get('uf');
+        $situacao = $req->get('situacao');
+        
+        $nomeEstado = (new \Helper\Utils())->siglaToExtensoEtados($uf);
+        //$queryBuilder = $app['db']->createQueryBuilder();
 
-//        return $app['twig']->render('sobre.twig', array());
+        $sql = "select c.id ,c.valor_global, c.valor_repasse, p.nome from convenio c 
+	left join proponente p on c.id_proponente = p.id
+	left join municipio m on m.id = p.id_municipio
+	where c.id_situacao = ? and m.uf = ?";
+        $statement = $app['db']->prepare($sql);
+        $statement->bindValue(1, $situacao);
+        $statement->bindValue(2, $uf);
+        $statement->execute();
+        $ongList = $statement->fetchAll();
+       
+        $sql = "select * from situacao_convenio where id = ?";
+        $statement = $app['db']->prepare($sql);
+        $statement->bindValue(1, $situacao);
+        $statement->execute();
+        $situacao = $statement->fetchAll();
+  
+        
+        return $app['twig']->render('ongList.twig', array('listaOng' => $ongList, 'nomeEstado' => $nomeEstado, 'situacao'=>$situacao[0]['nome'] ));
     }
 
 }
