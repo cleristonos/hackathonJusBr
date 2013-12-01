@@ -19,6 +19,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 
+
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options' => array(
         'driver'   => 'pdo_pgsql',
@@ -31,6 +32,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     ),
 ));
 
+\Model\AbstractModel::setEntityManager($app['db']);
 //-------------------ROTAS------------------------------------------
 $app->get('/', 'Controller\Site::home');
 $app->post('/ong', 'Controller\Site::listOng');
