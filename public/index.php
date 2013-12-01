@@ -41,6 +41,9 @@ $app->get('/ong/{uf}/{situacao}', 'Controller\Site::listOng');
 $app->get('/home/{situacao}', 'Controller\Site::home');
 $app->get('/home', 'Controller\Site::home');
 
+$app->get('/about', 'Controller\Site::about');
+$app->get('/usteam', 'Controller\Site::usteam');
+
 $app->get('/convenio/{id}', 'Controller\Site::convenio');
 
 

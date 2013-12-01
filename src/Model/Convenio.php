@@ -44,9 +44,12 @@ class Convenio extends AbstractModel {
     }
 
     public function convenioById($id) {
-         $sql = "select c.id, c.data_inicio_vigencia, c.data_fim_vigencia,
+         $sql = "select c.id, to_char(c.data_inicio_vigencia, 'DD/MM/YYYY') as data_inicio_vigencia, 
+                    to_char(c.data_fim_vigencia, 'DD/MM/YYYY') as data_fim_vigencia,
                     c.justificativa, valor_global, valor_repasse,
-                    c.data_assinatura,c.data_publicacao, c.objeto,	
+                    to_char(c.data_assinatura, 'DD/MM/YYYY') as data_assinatura,
+                    to_char(c.data_publicacao, 'DD/MM/YYYY') as data_publicacao,
+                    c.objeto,	
                     p.nome as nome_proponente, m.nome as nome_municipio,
                     s.nome as nome_situacao, sc.nome as nome_subsituacao,
                     o.nome as nome_orgao

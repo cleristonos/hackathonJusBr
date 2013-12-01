@@ -70,4 +70,13 @@ class Site extends AbstractController {
             'convenio'=> (new \Model\Convenio())->convenioById($idConvenio)
            ));
     }
+    
+    public function about(\Silex\Application $app) {
+        return $app['twig']->render('about.twig', array());
+    }
+    
+    public function usteam(\Silex\Application $app) {
+        return $app['twig']->render('usteam.twig', array());
+    }
+
 }
