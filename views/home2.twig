@@ -2,29 +2,32 @@
 {% block container %}
 <div class="row row-offcanvas row-offcanvas-right">
 
-    <div class="col-xs-12 col-sm-9">
-        <p class="pull-right visible-xs">
-            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
-        </p>
+    
+        <div class="col-xs-12 col-sm-9">
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+            </p>
 
-        <!-- Intertion of the map -->
-        <h3>Situação do Convênio: {{situacao.nome}}</h3>
-        <div id="map" style="width: 100%; height: 60%;"></div>
+            <!-- Intertion of the map -->
+            <h3>Situação do Convênio: {{situacao.nome}}</h3>
+            <div id="map" style="width: 100%; height: 50%;"></div>
 
-        <div class="row">
+            <div class="row">
 
-        </div><!--/row-->
-    </div><!--/span-->
+            </div><!--/row-->
+        </div><!--/span-->
 
-    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-        <div class="list-group">           
-            <a href="#" class="list-group-item active">Situações de Convênio</a>
-            {% for key, valor in listaSituacao %}
-                <a href="/home2/{{valor.id}}" class="list-group-item">{{valor.nome}}</a>
-            {% endfor%}           
-        </div>
-    </div><!--/span-->
-</div><!--/row-->
+        
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                <div class="list-group" style="max-height: 550px; overflow-y:scroll;">           
+                    <a href="#" class="list-group-item active">Situações de Convênio</a>
+                    {% for key, valor in listaSituacao %}
+                        <a href="/home2/{{valor.id}}" class="list-group-item">{{valor.nome}}</a>
+                    {% endfor%}           
+                </div>
+            </div><!--/span-->
+ </div><!--/row-->
+ 
       {% endblock %}
 {% block jsMap %}
 <script type="text/javascript">
