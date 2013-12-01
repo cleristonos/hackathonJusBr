@@ -40,17 +40,12 @@
              {% for key, estado in listaEstados %}
                          ['BR-{{estado.uf}}', {{estado.contador}}],
              {% endfor %}
-            
-            
-          
         ]);
 
         var geochart = new google.visualization.GeoChart(
                 document.getElementById('map'));
         geochart.draw(data, {
-            minColor: '#DDDDDD',
-            midColor: '#0000ff',
-            maxColor: '#00DD00',
+            colors : ['#DDDDDD', '#00FF00', '#FF0000'],
             region: "BR", 
             resolution: "provinces"
         });
