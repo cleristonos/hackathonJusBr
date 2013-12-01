@@ -1,13 +1,32 @@
 {% extends "template.twig"%}
 {% block container %}
-{% parent()%}
-            <!-- Main component for a primary marketing message or call to action -->
-            <div class="jumbotron">
-                <h1>Bem vindo ao ONGômetro</h1>
-                <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-                <p>To see the difference between static and fixed top navbars, just scroll.</p>
-                <p>
-                    <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-                </p>
-            </div>
+<!-- Main component for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <h1>Bem vindo ao ONGômetro</h1>
+    <h2>Selecione o estado</h2>
+    <form action="/ong" method="post">
+        <p>
+            <label>Situação</label>
+            {% for key, situacao in listaSituacao %}
+                <input type="radio" name="situacao" value="{{situacao.id}}">{{situacao.nome}}<br>
+            {% endfor%}
+                
+        </p>
+        <p>
+            <label>Escolha o Estado</label>
+            <select name="uf">
+            {% for sigla, nome in listaEstados %}
+                <option  value="{{sigla}}">{{nome}}</option>
+            {% endfor%}
+            </select>
+        </p>
+        <p><input type="submit" value="Pesquisar"></p>
+    </form>
+    <ul>
+
+
+
+
+    </ul>
+</div>
 {% endblock%}
