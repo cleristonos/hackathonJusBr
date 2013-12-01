@@ -19,7 +19,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 
-
+// Conexão banco de dados
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options' => array(
         'driver'   => 'pdo_pgsql',
@@ -36,7 +36,8 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
 //-------------------ROTAS------------------------------------------
 $app->get('/', 'Controller\Site::home');
 $app->post('/ong', 'Controller\Site::listOng');
-$app->get('/sobre', 'Controller\Site::sobre');
+$app->get('/ong/{uf}/{situacao}', 'Controller\Site::listOng');
+$app->get('/home2', 'Controller\Site::home2');
 
 $app->before('Controller\AbstractController::mainBefore');
 //--------------------------------------------------------------------

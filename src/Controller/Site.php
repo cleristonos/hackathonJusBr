@@ -35,5 +35,10 @@ class Site extends AbstractController {
 
         return $app['twig']->render('ongList.twig', array('listaOng' => $ongList, 'nomeEstado' => $nomeEstado, 'situacao' => $situacao['nome']));
     }
+     public function home2(\Silex\Application $app) {
+        
+
+        return $app['twig']->render('home2.twig', array('listaEstados'=>(new \Helper\Utils())->listarEstados()));
+    }
 
 }
