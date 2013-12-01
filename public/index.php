@@ -37,7 +37,10 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
 $app->get('/', 'Controller\Site::home');
 $app->post('/ong', 'Controller\Site::listOng');
 $app->get('/ong/{uf}/{situacao}', 'Controller\Site::listOng');
+
+$app->get('/home2/{situacao}', 'Controller\Site::home2');
 $app->get('/home2', 'Controller\Site::home2');
+
 
 $app->before('Controller\AbstractController::mainBefore');
 //--------------------------------------------------------------------
