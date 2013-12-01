@@ -12,13 +12,13 @@
     </thead>
     <tbody>
         {% for chave, ong in listaOng %}
-            <tr>
-                <td>{{ong.id}}</td>
-                <td>{{ong.nome}}</td>
-                <td>{{ong.valor_global|default('Não definido')}}</td>
-                <td>{{ong.valor_repasse|default('Não definido')}}</td>
-                <td>{{ong.valor_global - ong.valor_repasse}}</td>
-            </tr>
+        <tr>
+            <td>{{ong.id}}</td>
+            <td>{{ong.nome}}</td>
+            <td>{{ong.valor_global|default('Não definido')}}</td>
+            <td>{{ong.valor_repasse|default('Não definido')}}</td>
+            <td>{{ong.valor_global - ong.valor_repasse}}</td>
+        </tr>
          {% endfor%}
     </tbody>
 </table>
