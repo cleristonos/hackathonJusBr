@@ -1,6 +1,7 @@
 <?php
-
-//phpinfo();
+pg_connect("host=192.168.0.128 dbname=ongometro user=postgres password=root")
+    or die("Can't connect to database".pg_last_error());
+phpinfo();
 include '../vendor/autoload.php';
 //include '../src/Model/DAO/Canal.php';
 
@@ -19,6 +20,20 @@ $app['debug'] = true;
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => VIEW_PATH
 ));
+
+
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'db.options' => array(
+        'driver'   => 'pdo_pgsql',
+        'host'      => '192.168.0.128',
+        'port'      =>'5432',
+        'dbname'    => 'ongometro',
+        'user'      => 'postgres',
+        'password'  => 'root',
+        'charset'   => 'utf8'
+    ),
+));
+
 
 ////--------------------------------------------------------------------
 //$app->register(new Silex\Provider\SessionServiceProvider(), array('session.storage.options' => array(
