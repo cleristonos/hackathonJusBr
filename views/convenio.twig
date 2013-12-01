@@ -1,36 +1,42 @@
 {% extends "template.twig"%} 
 {% block container %}
-    ID: 
-    {{convenio.id|default('Não definido')}}<br>
-    Data de Início de Vigência: 
-    {{convenio.data_inicio_vigencia|default('Não definido')}}<br>
-    Data de Fim de Vigência:
-    {{convenio.data_fim_vigencia|default('Não definido')}}<br>
-    Justificativa: 
-    {{convenio.justificativa|default('Não definido')}}<br>
-    Valor Total do Convênio: 
-    {{convenio.valor_global|default('Não definido')}}<br>
-    Valor Total Repassado: 
-    {{convenio.valor_repasse|default('Não definido')}}<br>    
-    Data da Assinatura: 
-    {{convenio.data_assinatura|default('Não definido')}}<br>
-    Data de Publicação: 
-    {{convenio.data_publicacao|default('Não definido')}}<br>    
-    Objeto: 
-    {{convenio.objeto|default('Não definido')}}<br>
-   
-    Proponente: 
-    {{convenio.nome_proponente|default('Não definido')}}<br>        
-    Município do Proponente: 
-    {{convenio.nome_municipio|default('Não definido')}}<br>
-    
-    Orgão Concedente: 
-    {{convenio.nome_orgao|default('Não definido')}}<br>   
-    Situação do Convênio: 
-    {{convenio.nome_situacao|default('Não definido')}}<br>
-    
-    Subsituação do Convênio: 
-    {{convenio.nome_subsituacao|default('Não definido')}}<br>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Panel Title</h3>
+    </div>
+    <div class="panel-body">
+        <h4><strong>ID: </strong>
+    {{convenio.id|default('Não definido')}}</h4><hr>
+        <h4><strong>Data de Início de Vigência: </strong>
+    {{convenio.data_inicio_vigencia|default('Não definido')}}</h4><hr>
+        <h4><strong>Data de Fim de Vigência: </strong>
+    {{convenio.data_fim_vigencia|default('Não definido')}}</h4><hr>
+        <h4><strong>Justificativa: </strong>
+    {{convenio.justificativa|default('Não definido')}}</h4><hr>
+        <h4><strong>Valor Total do Convênio: </strong>
+    {{convenio.valor_global|default('Não definido')}}</h4><hr>
+        <h4><strong>Valor Total Repassado: </strong>
+    {{convenio.valor_repasse|default('Não definido')}}</h4><hr>    
+        <h4><strong>Data da Assinatura: </strong>
+    {{convenio.data_assinatura|default('Não definido')}}</h4><hr>
+        <h4><strong>Data de Publicação: </strong>
+    {{convenio.data_publicacao|default('Não definido')}}</h4><hr>    
+        <h4><strong>Objeto: </strong>
+    {{convenio.objeto|default('Não definido')}}</h4><hr>
 
+        <h4><strong>Proponente: </strong>
+    {{convenio.nome_proponente|default('Não definido')}}</h4><hr>        
+        <h4><strong>Município do Proponente: </strong>
+    {{convenio.nome_municipio|default('Não definido')}}</h4><hr>
 
+        <h4><strong>Orgão Concedente: </strong>
+    {{convenio.nome_orgao|default('Não definido')}}</h4><hr>   
+        <h4><strong>Situação do Convênio: </strong>
+    {{convenio.nome_situacao|default('Não definido')}}</h4><hr>
+
+        <h4><strong>Subsituação do Convênio: </strong>
+    {{convenio.nome_subsituacao|default('Não definido')}}</h4><hr>
+
+    </div>
+</div>
 {% endblock%}
