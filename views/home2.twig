@@ -36,18 +36,24 @@
 
     function drawVisualization() {
         var data = google.visualization.arrayToDataTable([
-            ['State', 'Foo Factor'],
+            ['State', 'Nº de Convênios'],
              {% for key, estado in listaEstados %}
                          ['BR-{{estado.uf}}', {{estado.contador}}],
              {% endfor %}
             
             
-         
+          
         ]);
 
         var geochart = new google.visualization.GeoChart(
                 document.getElementById('map'));
-        geochart.draw(data, {region: "BR", resolution: "provinces"});
+        geochart.draw(data, {
+            minColor: '#DDDDDD',
+            midColor: '#0000ff',
+            maxColor: '#00DD00',
+            region: "BR", 
+            resolution: "provinces"
+        });
         google.visualization.events.addListener(geochart, 'select', function() {
             var selection = geochart.getSelection();
             var row = selection[0].row;
