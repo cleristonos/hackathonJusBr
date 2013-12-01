@@ -12,14 +12,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 class Site extends AbstractController {
 
-    public function home(\Silex\Application $app) {
-
-        $situacaoLista = (new \Model\Convenio())->listaSituacao();
-        return $app['twig']->render('home.twig', array(
-                    'listaEstados' => (new \Helper\Utils())->listarEstados(),
-                    'listaSituacao' => $situacaoLista
-        ));
-    }
+//    public function home(\Silex\Application $app) {
+//
+//        $situacaoLista = (new \Model\Convenio())->listaSituacao();
+//        return $app['twig']->render('home.twig', array(
+//                    'listaEstados' => (new \Helper\Utils())->listarEstados(),
+//                    'listaSituacao' => $situacaoLista
+//        ));
+//    }
 
     public function listOng(\Silex\Application $app, Request $req) {
         $uf = $req->get('uf');
@@ -35,13 +35,13 @@ class Site extends AbstractController {
 
         return $app['twig']->render('ongList.twig', array('listaOng' => $ongList, 'nomeEstado' => $nomeEstado, 'situacao' => $situacao['nome']));
     }
-     public function home2(\Silex\Application $app, Request $req) {
+     public function home(\Silex\Application $app, Request $req) {
          $situacao = $req->get('situacao');
          if(!isset($situacao)){
              $situacao = 34;
          }
 
-        return $app['twig']->render('home2.twig', array(
+        return $app['twig']->render('home.twig', array(
             'listaEstados'=> (new \Model\Convenio())->listarEstadosComDiferenca($situacao),
             'listaSituacao'=>(new \Model\Convenio())->listaSituacao(),            
             'situacao'=>(new \Model\Convenio())->situacaoById($situacao)

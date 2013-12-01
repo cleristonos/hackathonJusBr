@@ -34,12 +34,12 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
 
 \Model\AbstractModel::setEntityManager($app['db']);
 //-------------------ROTAS------------------------------------------
-$app->get('/', 'Controller\Site::home2');
+$app->get('/', 'Controller\Site::home');
 $app->post('/ong', 'Controller\Site::listOng');
 $app->get('/ong/{uf}/{situacao}', 'Controller\Site::listOng');
 
-$app->get('/home2/{situacao}', 'Controller\Site::home2');
-$app->get('/home2', 'Controller\Site::home2');
+$app->get('/home/{situacao}', 'Controller\Site::home');
+$app->get('/home', 'Controller\Site::home');
 
 $app->get('/convenio/{id}', 'Controller\Site::convenio');
 
