@@ -34,7 +34,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
 
 \Model\AbstractModel::setEntityManager($app['db']);
 //-------------------ROTAS------------------------------------------
-$app->get('/', 'Controller\Site::home');
+$app->get('/', 'Controller\Site::home2');
 $app->post('/ong', 'Controller\Site::listOng');
 $app->get('/ong/{uf}/{situacao}', 'Controller\Site::listOng');
 

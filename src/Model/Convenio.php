@@ -43,4 +43,16 @@ class Convenio extends AbstractModel {
         return $listaEstados;
     }
 
+    public function convenioById($id) {
+         $sql = "select c.*,p.nome as nome_proponente, m.nome as nome_municipio from convenio c 
+                 left join proponente p on p.id = c.id_proponente
+                 left join municipio m on m.id = p.id_municipio
+                 where c.id = ?";
+        $statement = self::$entityManager->prepare($sql);
+        $statement->bindValue(1, $id);
+        $statement->execute();
+        $convenio = $statement->fetchAll();
+        return $convenio[0] ;
+    }
+    
 }
